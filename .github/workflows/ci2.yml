@@ -1,0 +1,12 @@
+name: build 2
+on:
+  workflow_run:
+    workflows:
+      - "build"
+    types:
+      - completed
+jobs:
+  build2:
+    runs-on: arc-runner-set
+    steps:
+      - run: echo "ci2"
