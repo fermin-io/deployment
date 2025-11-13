@@ -1,4 +1,4 @@
-name: build 2
+name: workflow-run-event
 on:
   workflow_run:
     workflows:
@@ -12,4 +12,4 @@ jobs:
   build2:
     runs-on: arc-runner-set
     steps:
-      - run: echo "${{ github.event.workflow_run.conclusion }}"
+      - run: echo "${{ toJSON(github.event) }}"
