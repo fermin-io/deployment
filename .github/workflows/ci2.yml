@@ -5,8 +5,11 @@ on:
       - "build"
     types:
       - completed
+      - requested
+      - in_progress
+
 jobs:
   build2:
     runs-on: arc-runner-set
     steps:
-      - run: echo "ci2"
+      - run: echo "${{ github.event.workflow_run.conclusion }}"
