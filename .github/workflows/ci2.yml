@@ -1,16 +1,14 @@
-name: workflow-run-event
+name: deploy to prod
 on:
   workflow_run:
     workflows:
       - "build"
     types:
       - completed
-      - requested
-      - in_progress
 
 jobs:
   build2:
-    environment: production
+    #environment: production
     runs-on: arc-runner-set
     steps:
       - run: echo "${{ toJSON(github.event) }}"
