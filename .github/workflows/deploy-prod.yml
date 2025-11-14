@@ -1,0 +1,14 @@
+name: deploy prod
+on:
+  workflow_run:
+    workflows:
+      - "build image"
+    types:
+      - completed
+
+jobs:
+  deploy-prod:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "deploying to prod..."
